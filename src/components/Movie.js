@@ -6,7 +6,7 @@ function Movie({ id, coverImg, title, genres, summary }) {
     <li key={id}>
       <img src={coverImg} alt={title} />
       <h2>
-        <Link to="/movie">{title}</Link>
+        <Link to={`/movie/${id}`}>{title}</Link>
       </h2>
       <div>
         {genres
@@ -19,6 +19,7 @@ function Movie({ id, coverImg, title, genres, summary }) {
 }
 
 Movie.propTypes = {
+  id: PropTypes.string.isRequired,
   coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
