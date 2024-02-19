@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,7 @@ function Home() {
   return (
     <div>
       {loading ? (
-        <h1>Loading..</h1>
+        <LoadingSpinner />
       ) : (
         <ul>
           {movies.map((movie) => (
