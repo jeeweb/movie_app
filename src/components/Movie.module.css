@@ -19,7 +19,7 @@
   transition: 0.4s;
 }
 
-.movie_link {
+.movie_link_detail {
   display: flex;
   height: 100%;
   text-decoration: none;
