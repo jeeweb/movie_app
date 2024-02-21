@@ -37,32 +37,34 @@ function Detail() {
               <path
                 fill="none"
                 stroke="black"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
           </Link>
           <div className={styles.movie_detail}>
-            <div className={styles.movie_img_box}>
-              <img
-                src={movie.medium_cover_image}
-                alt={movie.title}
-                className={styles.movie_img}
-              />
-            </div>
-            <div className={styles.movie_info}>
-              <h1 className={styles.movie_title}>{movie.title}</h1>
-              <p className={styles.movie_year}>{movie.year}</p>
-              <div className={styles.list_genres}>
-                {movie.genres
-                  ? movie.genres.map((genre) => (
-                      <span key={genre} className={styles.movie_genre}>
-                        {genre}
-                      </span>
-                    ))
-                  : null}
+            <div className={styles.movie_detail_top}>
+              <div className={styles.movie_img_box}>
+                <img
+                  src={movie.medium_cover_image}
+                  alt={movie.title}
+                  className={styles.movie_img}
+                />
+              </div>
+              <div className={styles.movie_info}>
+                <h1 className={styles.movie_title}>{movie.title}</h1>
+                <p className={styles.movie_year}>{movie.year}</p>
+                <div className={styles.list_genres}>
+                  {movie.genres
+                    ? movie.genres.map((genre) => (
+                        <span key={genre} className={styles.movie_genre}>
+                          {genre}
+                        </span>
+                      ))
+                    : null}
+                </div>
               </div>
             </div>
             <div className={styles.movie_summary_box}>

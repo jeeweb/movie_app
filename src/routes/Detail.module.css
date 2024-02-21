@@ -4,11 +4,15 @@
 }
 
 .container {
-  padding: 5em 8em;
+  position: relative;
+  padding: 3em 10em;
   height: 100vh;
 }
 
 .movie_link_back {
+  position: absolute;
+  left: calc(10em - 32px);
+  top: calc(3em - 32px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +20,6 @@
   height: 64px;
   border-radius: 100%;
   background-color: #fff;
-  transform: translate(-50%, 50%);
   transition: 0.4s;
 }
 
@@ -34,20 +37,27 @@
 }
 
 .movie_detail {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 2em 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
   padding: 2em 4em;
-  max-height: 72vh;
+  max-height: calc(100vh - 6em);
   background-color: #fff;
   border-radius: 1em;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
+.movie_detail_top {
+  display: flex;
+  align-items: flex-end;
+  gap: 2em;
+  height: 40%;
+}
+
 .movie_img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .movie_info {
@@ -76,8 +86,8 @@
 }
 
 .movie_summary_box {
-  grid-column: 1 / 3;
-  max-height: 16.38em;
+  flex: 1;
+  max-height: calc((100vh - 4em) / 2 - 3em);
   overflow-y: auto;
 }
 
@@ -90,6 +100,8 @@
   .movie_link_back {
     width: 48px;
     height: 48px;
+    left: calc(10em - 24px);
+    top: calc(3em - 24px);
   }
 
   .movie_link_back svg {
@@ -105,10 +117,6 @@
     font-size: 1.2em;
   }
 
-  .movie_summary_box {
-    max-height: 13.2em;
-  }
-
   .movie_summary {
     font-size: 1.1em;
     line-height: 1.2;
@@ -116,24 +124,21 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .movie_detail {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1.4fr;
-    padding: 2em;
-    gap: 1em;
+  .container {
+    padding: 3em 6em;
   }
 
-  .movie_img_box {
-    grid-row: 1 / 3;
+  .movie_link_back {
+    left: calc(6em - 24px);
+  }
+
+  .movie_detail {
+    padding: 2em;
+    max-height: calc(100vh - 6em);
   }
 
   .movie_title {
     font-size: 1.8em;
-  }
-
-  .movie_summary_box {
-    grid-column: 2 / 3;
-    max-height: 18.48em;
   }
 }
 
@@ -145,9 +150,13 @@
   .movie_img_box {
     display: none;
   }
+
+  .movie_summary_box {
+    max-height: calc((100vh - 2em) / 2);
+  }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -158,11 +167,15 @@
   }
 
   .movie_link_back {
-    transform: translate(0);
+    position: static;
   }
 
   .movie_detail {
     max-height: none;
+  }
+
+  .movie_detail_top {
+    display: block;
   }
 
   .movie_info,
@@ -173,9 +186,6 @@
 
   .movie_img_box {
     display: block;
-  }
-
-  .movie_summary_box {
-    max-height: 100%;
+    text-align: center;
   }
 }
