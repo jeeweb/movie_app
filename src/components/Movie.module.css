@@ -134,7 +134,7 @@
   .movie_item {
     height: 100vw;
   }
-  .movie_link {
+  .movie_link_detail {
     position: relative;
     flex-direction: column;
   }
